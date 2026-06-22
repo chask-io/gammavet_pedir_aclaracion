@@ -1,0 +1,38 @@
+function:
+  name: PedirAclaracionFn
+  runtime: python3.12
+  handler: handler.lambda_handler
+  description: |
+    Envia exactamente una solicitud de aclaracion por WhatsApp al conductor de
+    Gammavet cuando el mensaje es genuinamente ambiguo. No modifica rutas,
+    conductores, paradas ni retiros.
+  timeout: 120
+  memory_size: 256
+  layers:
+    - foundationMinimal
+    - foundationApi
+
+  parameters:
+    required:
+      - name: mensaje
+        type: string
+        description: Texto de aclaracion que se enviara al conductor.
+    optional:
+      - name: driver_phone
+        type: string
+        description: Telefono WhatsApp del conductor si esta disponible.
+      - name: ticket_id
+        type: string
+        description: ID opcional de ticket o sesion para correlacion.
+      - name: reason
+        type: string
+        description: Motivo interno de la aclaracion; no se envia al conductor.
+
+  widget:
+    enabled: false
+    type: dynamic_widget
+    params: []
+
+  testing:
+    handles_files: false
+    produces_files: false

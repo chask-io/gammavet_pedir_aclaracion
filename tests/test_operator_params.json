@@ -1,0 +1,28 @@
+{
+  "function_name": "PedirAclaracionFn",
+  "test_type": "operator_params",
+  "args": {},
+  "widget_params": {},
+  "prompt": "El conductor responde algo ambiguo y necesitamos pedirle que aclare si quiere pausar, continuar o reportar un problema.",
+  "event_type": "function_call",
+  "extra_params": {
+    "is_operator_params_test": true,
+    "user_phone_number": "+56976025397",
+    "agent_phone_number": "1051240901403291",
+    "tool_calls": [
+      {
+        "id": "test_call_pedir_aclaracion_operator",
+        "name": "PedirAclaracionFn",
+        "args": {
+          "mensaje": "Puedes aclarar si quieres pausar, continuar o reportar un problema?",
+          "reason": "mensaje_ambiguo"
+        }
+      }
+    ]
+  },
+  "files": [],
+  "metadata": {
+    "description": "Test operator generating params for PedirAclaracionFn",
+    "expected_status": "success"
+  }
+}
